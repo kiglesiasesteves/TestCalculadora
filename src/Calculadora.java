@@ -13,7 +13,7 @@ public class Calculadora{
     public final static int RESTA = 2;
 
 
-    public int Calculadora(float dato1, float dato2) {
+    public static Float Calculadora(float dato1, float dato2) {
         /**
          * @param float dato1
          * @param float dato2
@@ -22,10 +22,10 @@ public class Calculadora{
          *
          */
 
+        Float resultado=0.0f;
 
         int opcion= Integer.parseInt(JOptionPane.showInputDialog("Qué operación queres realizar \n 1. Suma \n 2. Multiplicación \n 3. Resta \n 4. División\""));
-        float resultado = 0;
-        String mensaje;
+        String mensaje=null;
 
         switch (opcion) {
             case SUMA:
@@ -43,22 +43,21 @@ public class Calculadora{
 
                 break;
             case DIVISION:
-                if (dato2 != 0) {
-                    resultado = dato1 / dato2;
-                } else {
-                    JOptionPane.showMessageDialog(null, "No es posible dividir por cero", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-                mensaje="División";
-
+            try {
+                resultado = dato1 / dato2;
+            }catch (ArithmeticException e){
+                JOptionPane.showMessageDialog(null,"No se puede dividir por cero");
+            }finally{
                 break;
+            }
+
             default:
-                JOptionPane.showMessageDialog(null, "Operación no válida", "Error", JOptionPane.ERROR_MESSAGE);
-                mensaje=null;
+
+                resultado = null;
         }
-        int resultadoInt = Math.round(resultado);
-        JOptionPane.showMessageDialog(null,"EL resultado entero de "+mensaje+" con los datos "+dato1+ " y "+dato2 +"es: ");
-        Salida.Seleccion_salida(resultadoInt,1);
-        return resultadoInt;
+
+        JOptionPane.showMessageDialog(null,"EL resultado entero de "+mensaje+" con los datos "+dato1+ " y " +dato2 +" es: ");
+       return resultado;
 
     }
 
