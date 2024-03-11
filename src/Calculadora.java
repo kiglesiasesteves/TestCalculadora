@@ -41,25 +41,14 @@ public class Calculadora {
         int opcion = getOpcion();
         String mensaje = getMensaje(opcion);
 
-        switch (opcion) {
-            case SUMA:
-                resultado = getSuma(dato1, dato2);
-                break;
-            case MULTIPLICACION:
-                resultado = getMultiplicacion(dato1, dato2);
-                break;
-            case RESTA:
-                resultado = getResta(dato1, dato2);
-                break;
-            case DIVISION:
-                resultado = getDivision(dato1, dato2);
-                break;
-            case RAIZ:
-                resultado = getRaiz(dato1, dato2);
-                break;
-            default:
-                resultado = null;
-        }
+        resultado = switch (opcion) {
+            case SUMA -> getSuma(dato1, dato2);
+            case MULTIPLICACION -> getMultiplicacion(dato1, dato2);
+            case RESTA -> getResta(dato1, dato2);
+            case DIVISION -> getDivision(dato1, dato2);
+            case RAIZ -> getRaiz(dato1, dato2);
+            default -> null;
+        };
 
         JOptionPane.showMessageDialog(null, "El resultado de " + getMensaje(opcion) + " con los datos " + dato1 + " y " + dato2 + " es: ");
         return resultado;
@@ -144,24 +133,14 @@ public class Calculadora {
      * @return El mensaje correspondiente a la opción seleccionada.
      */
     private static String getMensaje(int opcion) {
-        String mensaje = null;
-        switch (opcion) {
-            case SUMA:
-                mensaje = "Suma";
-                break;
-            case MULTIPLICACION:
-                mensaje = "Multiplicación";
-                break;
-            case RESTA:
-                mensaje = "Resta";
-                break;
-            case DIVISION:
-                mensaje = "División";
-                break;
-            case RAIZ:
-                mensaje = "Raíz";
-                break;
-        }
+        String mensaje = switch (opcion) {
+            case SUMA -> "Suma";
+            case MULTIPLICACION -> "Multiplicación";
+            case RESTA -> "Resta";
+            case DIVISION -> "División";
+            case RAIZ -> "Raíz";
+            default -> null;
+        };
         return mensaje;
     }
 
