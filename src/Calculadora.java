@@ -31,21 +31,18 @@ public class Calculadora{
         Float resultado=0.0f;
 
         int opcion = getOpcion();
-        String mensaje=null;
+        String mensaje = getMensaje();
 
         switch (opcion) {
             case SUMA:
                 resultado = dato1 + dato2;
-                mensaje = "Suma";
                 break;
             case MULTIPLICACION:
                 resultado = dato1 * dato2;
-                mensaje = "Multiplication";
 
                 break;
             case RESTA:
                 resultado = dato1 - dato2;
-                mensaje = "Resta";
 
                 break;
             case DIVISION:
@@ -63,7 +60,6 @@ public class Calculadora{
                 } else {
                     resultado = (float) Math.pow(dato2, 1 / dato1);
                 }
-                mensaje = "Raiz";
                 break;
 
 
@@ -72,8 +68,31 @@ public class Calculadora{
                 resultado = null;
         }
 
-        JOptionPane.showMessageDialog(null,"EL resultado entero de "+mensaje+" con los datos "+dato1+ " y " +dato2 +" es: ");
+        JOptionPane.showMessageDialog(null,"EL resultado entero de "+getMensaje()+" con los datos "+dato1+ " y " +dato2 +" es: ");
        return resultado;
+
+    }
+
+    private static String getMensaje() {
+        String mensaje=null;
+        switch (getOpcion()) {
+            case SUMA:
+                mensaje = "Suma";
+                break;
+            case MULTIPLICACION:
+                mensaje = "Multiplicación";
+                break;
+            case RESTA:
+                mensaje = "Resta";
+                break;
+            case DIVISION:
+                mensaje = "División";
+                break;
+            case RAIZ:
+                mensaje = "Raiz";
+                break;
+        }
+        return mensaje;
 
     }
 
