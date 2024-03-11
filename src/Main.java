@@ -10,7 +10,7 @@ public class Main {
 
                //Comprobacion del retorno
                if(retorno == null){
-                   Salida.salida_ventana_consola("Algo fallo",Salida.CONSOLA);
+                   Salida.salida_ventana_consola("Algo falló",Salida.CONSOLA);
                }else{
                    Salida.salida_float("Resultado: ",retorno,Salida.CONSOLA);
                }

@@ -6,11 +6,17 @@ import javax.swing.*;
 
 public class Calculadora{
     public final static int SUMA = 1;
+
+
+    public final static int RESTA = 2;
+
     public final static int MULTIPLICACION = 3;
 
     public final static int DIVISION = 4;
 
-    public final static int RESTA = 2;
+        public final static int RAIZ = 5;
+
+
 
 
     public static Float Calculadora(float dato1, float dato2) {
@@ -30,26 +36,36 @@ public class Calculadora{
         switch (opcion) {
             case SUMA:
                 resultado = dato1 + dato2;
-                mensaje="Suma";
+                mensaje = "Suma";
                 break;
             case MULTIPLICACION:
                 resultado = dato1 * dato2;
-                mensaje="Multiplication";
+                mensaje = "Multiplication";
 
                 break;
             case RESTA:
                 resultado = dato1 - dato2;
-                mensaje="Resta";
+                mensaje = "Resta";
 
                 break;
             case DIVISION:
-            try {
-                resultado = dato1 / dato2;
-            }catch (ArithmeticException e){
-                JOptionPane.showMessageDialog(null,"No se puede dividir por cero");
-            }finally{
+                try {
+                    resultado = dato1 / dato2;
+                } catch (ArithmeticException e) {
+                    JOptionPane.showMessageDialog(null, "No se puede dividir por cero");
+                } finally {
+                    break;
+                }
+
+            case RAIZ:
+                if (dato1 == 0) {
+                    resultado = 1F;
+                } else {
+                    resultado = (float) Math.pow(dato2, 1 / dato1);
+                }
+                mensaje = "Raiz";
                 break;
-            }
+
 
             default:
 
