@@ -30,7 +30,7 @@ public class Calculadora{
 
         Float resultado=0.0f;
 
-        int opcion= Integer.parseInt(JOptionPane.showInputDialog("Qué operación queres realizar \n 1. Suma \n 2. Multiplicación \n 3. Resta \n 4. División\""));
+        int opcion = getOpcion();
         String mensaje=null;
 
         switch (opcion) {
@@ -75,6 +75,11 @@ public class Calculadora{
         JOptionPane.showMessageDialog(null,"EL resultado entero de "+mensaje+" con los datos "+dato1+ " y " +dato2 +" es: ");
        return resultado;
 
+    }
+
+    private static int getOpcion() {
+        int opcion= Integer.parseInt(JOptionPane.showInputDialog("Qué operación queres realizar \n 1. Suma \n 2. Multiplicación \n 3. Resta \n 4. División\""));
+        return opcion;
     }
 
 
