@@ -1,4 +1,4 @@
-# Creación dunha bateria de tests
+# Creación de una bateria de tests
 
 [Código fuente del programa Calculadora](src/src)
 
