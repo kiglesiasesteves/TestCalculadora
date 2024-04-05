@@ -35,10 +35,9 @@ public class Calculadora {
      * @param dato2 El segundo número para la operación.
      * @return El resultado de la operación matemática.
      */
-    public static Float Calculadora(float dato1, float dato2) {
+    public static Float Calculadora(float dato1, float dato2,int opcion) {
         Float resultado = 0.0f;
 
-        int opcion = getOpcion();
         String mensaje = getMensaje(opcion);
 
         resultado = switch (opcion) {
@@ -61,8 +60,8 @@ public class Calculadora {
      * @param dato2 El segundo número para la operación.
      * @return La raíz cuadrada del segundo dato elevado a la inversa del primer dato.
      */
-    private static Float getRaiz(float dato1, float dato2) {
-        Float resultado;
+    public static Float getRaiz(float dato1, float dato2) {
+        float resultado;
         if (dato1 == 0) {
             resultado = 1F;
         } else {
@@ -78,7 +77,7 @@ public class Calculadora {
      * @param dato2 El divisor.
      * @return El resultado de la división.
      */
-    private static float getDivision(float dato1, float dato2) {
+    public static float getDivision(float dato1, float dato2) {
         try {
             return dato1 / dato2;
         } catch (ArithmeticException e) {
@@ -94,8 +93,8 @@ public class Calculadora {
      * @param dato2 El segundo número.
      * @return El resultado de la resta.
      */
-    private static Float getResta(float dato1, float dato2) {
-        Float resultado;
+    public static Float getResta(float dato1, float dato2) {
+        float resultado;
         resultado = dato1 - dato2;
         return resultado;
     }
@@ -107,8 +106,8 @@ public class Calculadora {
      * @param dato2 El segundo número.
      * @return El resultado de la multiplicación.
      */
-    private static Float getMultiplicacion(float dato1, float dato2) {
-        Float resultado;
+    public static Float getMultiplicacion(float dato1, float dato2) {
+        float resultado;
         resultado = dato1 * dato2;
         return resultado;
     }
@@ -120,8 +119,8 @@ public class Calculadora {
      * @param dato2 El segundo número.
      * @return El resultado de la suma.
      */
-    private static Float getSuma(float dato1, float dato2) {
-        Float resultado;
+    public static Float getSuma(float dato1, float dato2) {
+        float resultado;
         resultado = dato1 + dato2;
         return resultado;
     }
@@ -133,7 +132,7 @@ public class Calculadora {
      * @return El mensaje correspondiente a la opción seleccionada.
      */
     private static String getMensaje(int opcion) {
-        String mensaje = switch (opcion) {
+        return switch (opcion) {
             case SUMA -> "Suma";
             case MULTIPLICACION -> "Multiplicación";
             case RESTA -> "Resta";
@@ -141,7 +140,6 @@ public class Calculadora {
             case RAIZ -> "Raíz";
             default -> null;
         };
-        return mensaje;
     }
 
     /**
@@ -150,7 +148,7 @@ public class Calculadora {
      * @return La opción seleccionada por el usuario.
      */
     static int getOpcion() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog("Qué operación quieres realizar?\n 1. Suma\n 2. Multiplicación\n 3. Resta\n 4. División\n 5. Raíz"));
+        int opcion = Integer.parseInt(JOptionPane.showInputDialog("Qué operación quieres realizar?\n 1. Suma\n 2. Resta\n 3. Multiplicación\n 4. División\n 5. Raíz"));
         return opcion;
     }
 }

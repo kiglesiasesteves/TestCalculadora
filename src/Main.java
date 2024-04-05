@@ -22,7 +22,8 @@ public class Main {
         // Solicita al usuario que ingrese dos números
         Float retorno = Calculadora.Calculadora(
                 Entrada.entrada_ventana_consola_float("Tecle el primer número (en caso de querer realizar una raíz, este será el radicando)", Entrada.VENTANA),
-                Entrada.entrada_ventana_consola_float("Tecle el segundo número (en caso de querer realizar una raíz, este será el índice)", Entrada.VENTANA));
+                Entrada.entrada_ventana_consola_float("Tecle el segundo número (en caso de querer realizar una raíz, este será el índice)", Entrada.VENTANA),
+        Calculadora.getOpcion());
 
         // Verifica el valor de retorno y muestra el resultado o un mensaje de error
         if (retorno == null) {
